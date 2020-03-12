@@ -19,6 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTheme">
+        <activity android:name=".GerarScketch"></activity>
         <activity android:name=".TelaEscolhaLayoutsPersonalizados" />
         <activity android:name=".Terminal" />
         <activity android:name=".TelaPersonalizada" />
