@@ -25,7 +25,7 @@ public class GerarScketch extends AppCompatActivity {
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.mViewPager);
 
-        mViewPager.setAdapter(new GerarSckecthAdapter(getSupportFragmentManager(), getResources().getStringArray(R.array.titles_tab)));
+        mViewPager.setAdapter(new GerarSckecthAdapter(getSupportFragmentManager(), getResources().getStringArray(R.array.titles_tab_scketch)));
         mTabLayout.setupWithViewPager(mViewPager);
 
 

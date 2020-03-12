@@ -23,7 +23,7 @@
 
     <string-array name="titles_tab_scketch">
         <item>Configurar</item>
-        <item>Codigo</item>
+        <item>Gerar</item>
 
     </string-array>
     <string name="open_drawer">Abrir</string>
