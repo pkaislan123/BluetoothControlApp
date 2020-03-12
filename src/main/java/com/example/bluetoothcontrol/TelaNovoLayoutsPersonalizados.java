@@ -553,6 +553,8 @@ public class TelaNovoLayoutsPersonalizados extends AppCompatActivity implements 
 
             case R.id.nav_item_gerar:
             { //gerar scketch
+                Intent intent = new Intent(this, GerarScketch.class);
+                startActivity(intent);
 
             }break;
 
