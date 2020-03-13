@@ -16,14 +16,15 @@ public class GerarScketch extends AppCompatActivity {
 
 
 
-    FragmentPanelSkecth fragmentPanelSkecth = null;
+  //  //FragmentPanelSkecth fragmentPanelSkecth = null;
+   // FragmentGerarSkecth fragmentPanelSkecth = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerar_scketch);
 
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mViewPager = (ViewPager) findViewById(R.id.mViewPager);
+        mTabLayout = (TabLayout) findViewById(R.id.tab_layout_scketch);
+        mViewPager = (ViewPager) findViewById(R.id.mViewPagerScketch);
 
         mViewPager.setAdapter(new GerarSckecthAdapter(getSupportFragmentManager(), getResources().getStringArray(R.array.titles_tab_scketch)));
         mTabLayout.setupWithViewPager(mViewPager);
