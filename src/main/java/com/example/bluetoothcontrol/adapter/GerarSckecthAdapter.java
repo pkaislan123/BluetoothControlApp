@@ -2,12 +2,13 @@ package com.example.bluetoothcontrol.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.bluetoothcontrol.FragmentGerarSkecth;
 import com.example.bluetoothcontrol.FragmentPanelSkecth;
 
-public class GerarSckecthAdapter extends FragmentStatePagerAdapter {
+public class GerarSckecthAdapter extends FragmentPagerAdapter {
     private String[] mTabTitles;
 
     public GerarSckecthAdapter(FragmentManager fm, String[]  mbTabTitles) {
