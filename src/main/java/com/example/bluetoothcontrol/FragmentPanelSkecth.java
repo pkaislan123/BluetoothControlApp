@@ -28,10 +28,12 @@ public class FragmentPanelSkecth extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+
         View view = inflater.inflate(R.layout.fragment_panel_skecth, null);
 
         meuLayout = new LinearLayoutManager(getContext());
-        recycleritens = (RecyclerView) view.findViewById(R.id.recyclerVBusc);
+        recycleritens = (RecyclerView) view.findViewById(R.id.recyclerVItensConfigurarScketch);
 
 
         recycleritens.setLayoutManager(meuLayout);
