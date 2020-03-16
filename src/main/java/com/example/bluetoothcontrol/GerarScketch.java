@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import com.example.bluetoothcontrol.adapter.GerarSckecthAdapter;
 
+import java.util.ArrayList;
+
 public class GerarScketch extends AppCompatActivity {
 
     private TabLayout mTabLayout;
@@ -16,10 +18,20 @@ public class GerarScketch extends AppCompatActivity {
 
 
 
-  //  //FragmentPanelSkecth fragmentPanelSkecth = null;
-   // FragmentGerarSkecth fragmentPanelSkecth = null;
+    private FragmentPanelSkecth fragmentPanelSkecth ;
+   private FragmentGerarSkecth fragmentGerarSkecth ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ArrayList<Componente> componentes = getIntent().getParcelableArrayListExtra("componentes");
+
+
+        Bundle lista_componentes = new Bundle();
+        lista_componentes.putParcelableArrayList("componentes", componentes);
+        fragmentPanelSkecth = new FragmentPanelSkecth();
+
+        fragmentPanelSkecth.setArguments(lista_componentes);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerar_scketch);
 
@@ -31,4 +43,5 @@ public class GerarScketch extends AppCompatActivity {
 
 
     }
+
 }

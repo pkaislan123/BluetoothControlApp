@@ -554,7 +554,20 @@ public class TelaNovoLayoutsPersonalizados extends AppCompatActivity implements 
             case R.id.nav_item_gerar:
             { //gerar scketch
                 Intent intent = new Intent(this, GerarScketch.class);
-                startActivity(intent);
+
+                if(componentes.size() <= 0)
+                {
+                    Toast.makeText(this, "Não a componentes para gerar uma scketch", Toast.LENGTH_SHORT).show();
+
+
+                }
+                else
+                {
+                    intent.putParcelableArrayListExtra("componententes", componentes);
+                    startActivity(intent);
+
+                }
+
 
             }break;
 

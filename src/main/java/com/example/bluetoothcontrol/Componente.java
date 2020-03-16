@@ -1,11 +1,74 @@
 package com.example.bluetoothcontrol;
 
-public class Componente
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Componente implements Parcelable
 {
 
     int funcao;
 
     String nomeComponenteArduinoEixoY, pinoComponenteEixoYArduino;
+
+    protected Componente(Parcel in) {
+        funcao = in.readInt();
+        nomeComponenteArduinoEixoY = in.readString();
+        pinoComponenteEixoYArduino = in.readString();
+        usarArduino = in.readByte() != 0;
+        funcaoScketch = in.readString();
+        funcaoScketchEixoX = in.readString();
+        funcaScketchEixoY = in.readString();
+        arduinoWrite = in.readInt();
+        isPino = in.readByte() != 0;
+        isModo = in.readByte() != 0;
+        isFuncao = in.readByte() != 0;
+        modoPino = in.readInt();
+        nomeComponenteArduino = in.readString();
+        modoOperacao = in.readInt();
+        pin = in.readString();
+        modoOperacaoEixoX = in.readInt();
+        modoOperacaoEixoY = in.readInt();
+        intervaloInicioEixoX = in.readInt();
+        intervaloFimEixoX = in.readInt();
+        escopoEixoX = in.readInt();
+        tipoArduino = in.readInt();
+        intervaloInicioEixoY = in.readInt();
+        intervaloFimEixoY = in.readInt();
+        escopoEixoY = in.readInt();
+        idComponente = in.readInt();
+        eixoX = in.readByte() != 0;
+        eixoY = in.readByte() != 0;
+        tipoBotao = in.readInt();
+        rotacaoBotao = in.readInt();
+        cor = in.readInt();
+        formato = in.readInt();
+        chaveInicioEixoX = in.readString();
+        chaveFimEixoX = in.readString();
+        chaveInicioEixoY = in.readString();
+        chaveFimEixoY = in.readString();
+        intervaloInicio = in.readInt();
+        intervaloFim = in.readInt();
+        chaveInicio = in.readString();
+        chaveFim = in.readString();
+        nomeComponente = in.readString();
+        caracterEnvio = in.readString();
+        positionX = in.readInt();
+        positionY = in.readInt();
+        tipo = in.readString();
+        desabilitarOpcoesJoystick = in.readInt();
+    }
+
+    public static final Creator<Componente> CREATOR = new Creator<Componente>() {
+        @Override
+        public Componente createFromParcel(Parcel in) {
+            return new Componente(in);
+        }
+
+        @Override
+        public Componente[] newArray(int size) {
+            return new Componente[size];
+        }
+    };
 
     public String getNomeComponenteArduinoEixoY() {
         return nomeComponenteArduinoEixoY;
@@ -444,8 +507,57 @@ public class Componente
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-
-
-
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(funcao);
+        dest.writeString(nomeComponenteArduinoEixoY);
+        dest.writeString(pinoComponenteEixoYArduino);
+        dest.writeByte((byte) (usarArduino ? 1 : 0));
+        dest.writeString(funcaoScketch);
+        dest.writeString(funcaoScketchEixoX);
+        dest.writeString(funcaScketchEixoY);
+        dest.writeInt(arduinoWrite);
+        dest.writeByte((byte) (isPino ? 1 : 0));
+        dest.writeByte((byte) (isModo ? 1 : 0));
+        dest.writeByte((byte) (isFuncao ? 1 : 0));
+        dest.writeInt(modoPino);
+        dest.writeString(nomeComponenteArduino);
+        dest.writeInt(modoOperacao);
+        dest.writeString(pin);
+        dest.writeInt(modoOperacaoEixoX);
+        dest.writeInt(modoOperacaoEixoY);
+        dest.writeInt(intervaloInicioEixoX);
+        dest.writeInt(intervaloFimEixoX);
+        dest.writeInt(escopoEixoX);
+        dest.writeInt(tipoArduino);
+        dest.writeInt(intervaloInicioEixoY);
+        dest.writeInt(intervaloFimEixoY);
+        dest.writeInt(escopoEixoY);
+        dest.writeInt(idComponente);
+        dest.writeByte((byte) (eixoX ? 1 : 0));
+        dest.writeByte((byte) (eixoY ? 1 : 0));
+        dest.writeInt(tipoBotao);
+        dest.writeInt(rotacaoBotao);
+        dest.writeInt(cor);
+        dest.writeInt(formato);
+        dest.writeString(chaveInicioEixoX);
+        dest.writeString(chaveFimEixoX);
+        dest.writeString(chaveInicioEixoY);
+        dest.writeString(chaveFimEixoY);
+        dest.writeInt(intervaloInicio);
+        dest.writeInt(intervaloFim);
+        dest.writeString(chaveInicio);
+        dest.writeString(chaveFim);
+        dest.writeString(nomeComponente);
+        dest.writeString(caracterEnvio);
+        dest.writeInt(positionX);
+        dest.writeInt(positionY);
+        dest.writeString(tipo);
+        dest.writeInt(desabilitarOpcoesJoystick);
+    }
 }
