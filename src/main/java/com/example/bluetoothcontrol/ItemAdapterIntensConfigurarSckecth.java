@@ -20,7 +20,7 @@ public class ItemAdapterIntensConfigurarSckecth extends RecyclerView.Adapter<Rec
     public void setArrayList(ArrayList<Componente> componentes)
     {
         this.componentes = componentes;
-        ;
+
     }
 
 
