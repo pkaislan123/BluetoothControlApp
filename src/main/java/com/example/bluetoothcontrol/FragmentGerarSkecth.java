@@ -23,6 +23,9 @@ public class FragmentGerarSkecth extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+      String myTag = getTag();
+        ((GerarScketch) getActivity()).setTabFragmentB(myTag);
+
         return inflater.inflate(R.layout.fragment_gerar_skecth, container, false);
     }
 

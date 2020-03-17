@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class ItemAdapterIntensConfigurarSckecth extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private ArrayList<Componente> componentes ;
+    private ArrayList<Componente> componentes = new ArrayList<>() ;
 
 
     public void setArrayList(ArrayList<Componente> componentes)
@@ -50,8 +50,8 @@ public class ItemAdapterIntensConfigurarSckecth extends RecyclerView.Adapter<Rec
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            itens_configurar_scketch_nome_componente = (TextView) itemView.findViewById(R.id.itens_configurar_scketch_nome_componente);
-            itens_configurar_scketch_tipo_componente = (Spinner) itemView.findViewById(R.id.itens_configurar_scketch_tipo_componente);
+            itens_configurar_scketch_nome_componente =  itemView.findViewById(R.id.itens_configurar_scketch_nome_componente);
+            itens_configurar_scketch_tipo_componente = itemView.findViewById(R.id.itens_configurar_scketch_tipo_componente);
 
 
         }

@@ -71,11 +71,11 @@
                     <EditText
                         android:id="@+id/caracter_envio_inicio_joyX"
                         android:layout_width="80dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name"
+                        android:text="K"
                         android:textAlignment="center"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -102,7 +102,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name"
+                        android:text="L"
                         android:textAlignment="center"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -234,11 +234,11 @@
                     <EditText
                         android:id="@+id/caracter_envio_inicio_joyY"
                         android:layout_width="80dp"
-                        android:layout_height="40dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name"
+                        android:text="M"
                         android:textAlignment="center"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -263,7 +263,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name"
+                        android:text="N"
                         android:textAlignment="center"
                         android:textSize="14sp" />
 

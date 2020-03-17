@@ -8,19 +8,23 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.example.bluetoothcontrol.FragmentGerarSkecth;
 import com.example.bluetoothcontrol.FragmentPanelSkecth;
 
-public class GerarSckecthAdapter extends FragmentPagerAdapter {
-    private String[] mTabTitles;
+import java.util.ArrayList;
+import java.util.List;
 
-    public GerarSckecthAdapter(FragmentManager fm, String[]  mbTabTitles) {
+public class GerarSckecthAdapter extends FragmentPagerAdapter {
+    private final List<String> mTabTitles = new ArrayList<>();
+    private final List<Fragment> mfragmentList = new ArrayList<>();
+
+
+    public GerarSckecthAdapter(FragmentManager fm) {
         super(fm);
 
 
-        this.mTabTitles = mbTabTitles;
     }
 
     @Override
     public Fragment getItem(int i) {
-        switch(i)
+        /*switch(i)
         {
             case 0:
                 return new FragmentPanelSkecth();
@@ -30,20 +34,31 @@ public class GerarSckecthAdapter extends FragmentPagerAdapter {
                 return null;
         }
 
+         */
+        return mfragmentList.get(i);
+
+
     }
 
     @Override
     public int getCount() {
-        return this.mTabTitles.length;
+        return mfragmentList.size();
     }
 
     @Override
     public CharSequence getPageTitle(int i)
     {
-        return this.mTabTitles[i];
+        return mTabTitles.get(i);
     }
 
 
+    public void addFrag(Fragment fragment, String title)
+    {
+        mfragmentList.add(fragment);
+        mTabTitles.add(title);
+
+
+    }
 
 
 

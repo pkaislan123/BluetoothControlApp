@@ -563,7 +563,8 @@ public class TelaNovoLayoutsPersonalizados extends AppCompatActivity implements 
                 }
                 else
                 {
-                    intent.putParcelableArrayListExtra("componententes", componentes);
+
+                    intent.putParcelableArrayListExtra("componentes", componentes);
                     startActivity(intent);
 
                 }
