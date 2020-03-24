@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 /**
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 public class FragmentGerarSkecth extends Fragment {
 
 
+    EditText skecth_definida ;
     public FragmentGerarSkecth() {
         // Required empty public constructor
     }
@@ -23,10 +26,14 @@ public class FragmentGerarSkecth extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-      String myTag = getTag();
+        View view = inflater.inflate(R.layout.fragment_gerar_skecth, container, false);
+
+        String myTag = getTag();
         ((GerarScketch) getActivity()).setTabFragmentB(myTag);
 
-        return inflater.inflate(R.layout.fragment_gerar_skecth, container, false);
+        skecth_definida = view.findViewById(R.id.skecth_definida);
+
+        return view;
     }
 
 }

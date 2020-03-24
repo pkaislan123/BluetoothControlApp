@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.bluetoothcontrol.adapter.GerarSckecthAdapter;
 
@@ -19,7 +20,7 @@ public class FragmentPanelSkecth extends Fragment {
 
     RecyclerView recycleritens;
     ArrayList<Componente> componentes = new ArrayList<Componente>();
-    ItemAdapterIntensConfigurarSckecth adapter = new ItemAdapterIntensConfigurarSckecth();
+    ItemAdapterIntensConfigurarSckecth adapter ;
     ;
     LinearLayoutManager meuLayout;
 
@@ -44,7 +45,7 @@ public class FragmentPanelSkecth extends Fragment {
         ((GerarScketch) getActivity()).setTabFragmentA(myTag);
 
 
-
+        adapter = new ItemAdapterIntensConfigurarSckecth(getContext());
         meuLayout = new LinearLayoutManager(getContext());
         recycleritens = (RecyclerView) view.findViewById(R.id.recyclerVItensConfigurarScketch);
 
@@ -56,6 +57,21 @@ public class FragmentPanelSkecth extends Fragment {
         recycleritens.addItemDecoration(
                 new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
+
+        adapter.setSpinnerSelectedListener(new ItemAdapterIntensConfigurarSckecth.SpinnerSelectedListener() {
+            @Override
+            public void onItemClick(String item, int position) {
+                Toast.makeText(getContext(), item + " posicao: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        adapter.setPinoListener(new ItemAdapterIntensConfigurarSckecth.PinoListener() {
+            @Override
+            public void onItemClick(String pino, int position) {
+                Toast.makeText(getContext(), pino + "posicao: " + position, Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         return view;
 
