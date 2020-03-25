@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel;
 import android.bluetooth.BluetoothDevice;
 import android.support.v4.app.Fragment;
 
+import com.example.bluetoothcontrol.FragmentGerarSkecth;
 import com.example.bluetoothcontrol.PareadosActivity;
 
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import java.util.ArrayList;
 public class UserModel extends ViewModel {
     private final MutableLiveData<ArrayList<BluetoothDevice>> selected = new MutableLiveData<>();
     private final MutableLiveData<PareadosActivity> mandarFragment = new MutableLiveData<>();
+
+    private final MutableLiveData<FragmentGerarSkecth> contextoGerarSkecth = new MutableLiveData<>();
 
 
     private ArrayList<BluetoothDevice> devices = new ArrayList<>();
@@ -34,6 +37,18 @@ public class UserModel extends ViewModel {
     public ArrayList<BluetoothDevice> getSelected() {
         return selected.getValue();
     }
+
+
+
+    public void setContextoGerarSkecth(FragmentGerarSkecth fragmentGerarSkecth)
+    {
+        contextoGerarSkecth.setValue(fragmentGerarSkecth);
+    }
+
+    public Fragment getContextoGerarSkecth(){
+        return contextoGerarSkecth.getValue();
+    }
+
 
 }
 

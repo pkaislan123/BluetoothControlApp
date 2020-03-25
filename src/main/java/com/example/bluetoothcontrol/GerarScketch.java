@@ -21,7 +21,7 @@ public class GerarScketch extends AppCompatActivity {
     String TabFragmentA, TabFragmentB;
 
 
-    private FragmentPanelSkecth fragmentPanelSkecth;
+    private FragmentConfigurarSkecth fragmentConfigurarSkecth;
     private FragmentGerarSkecth fragmentGerarSkecth;
 
      ArrayList<Componente> componentes  = new ArrayList<>();
@@ -44,14 +44,31 @@ public class GerarScketch extends AppCompatActivity {
 
         mTabLayout.setupWithViewPager(mViewPager);
         enviaDados();
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
+
 
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        fragmentPanelSkecth = new FragmentPanelSkecth();
+        fragmentConfigurarSkecth = new FragmentConfigurarSkecth();
         fragmentGerarSkecth = new FragmentGerarSkecth();
         GerarSckecthAdapter adapter = new GerarSckecthAdapter(getSupportFragmentManager());
-        adapter.addFrag(fragmentPanelSkecth, "Configurar");
+        adapter.addFrag(fragmentConfigurarSkecth, "Configurar");
         adapter.addFrag(fragmentGerarSkecth, "Gerar");
         viewPager.setAdapter(adapter);
     }
@@ -78,10 +95,14 @@ public class GerarScketch extends AppCompatActivity {
     public void enviaDados() {
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("componentes",componentes);
-        fragmentPanelSkecth.setArguments(bundle);
+        fragmentConfigurarSkecth.setArguments(bundle);
 
     }
 
+    public void trocarPagina(int indice)
+    {
+        mViewPager.setCurrentItem(indice);
+    }
 
 }
 

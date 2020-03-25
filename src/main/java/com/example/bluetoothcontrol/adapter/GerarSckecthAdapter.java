@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.bluetoothcontrol.FragmentGerarSkecth;
-import com.example.bluetoothcontrol.FragmentPanelSkecth;
+import com.example.bluetoothcontrol.FragmentConfigurarSkecth;
 
 import java.util.ArrayList;
 import java.util.List;

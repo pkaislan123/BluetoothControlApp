@@ -1,6 +1,7 @@
 package com.example.bluetoothcontrol;
 
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,22 +11,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.bluetoothcontrol.adapter.GerarSckecthAdapter;
+import com.example.bluetoothcontrol.interfaces.UserModel;
 
 import java.util.ArrayList;
 
-public class FragmentPanelSkecth extends Fragment {
+public class FragmentConfigurarSkecth extends Fragment {
 
     RecyclerView recycleritens;
     ArrayList<Componente> componentes = new ArrayList<Componente>();
     ItemAdapterIntensConfigurarSckecth adapter ;
-    ;
+    private UserModel model;
     LinearLayoutManager meuLayout;
+    ConfigurarCodigo configurarCodigo;
+
+    FragmentGerarSkecth fragmentGerarSkecth;
 
 
-    public FragmentPanelSkecth() {
+    Button gerar_skecth;
+    public FragmentConfigurarSkecth() {
         // Required empty public constructor
     }
 
@@ -39,7 +45,7 @@ public class FragmentPanelSkecth extends Fragment {
         componentes = getArguments().getParcelableArrayList("componentes");
         Log.i("ComponentesFra", componentes.get(0).getNomeComponente());
 
-        View view = inflater.inflate(R.layout.fragment_panel_skecth, null);
+        View view = inflater.inflate(R.layout.fragment_configurar_skecth, null);
 
         String myTag = getTag();
         ((GerarScketch) getActivity()).setTabFragmentA(myTag);
@@ -62,6 +68,7 @@ public class FragmentPanelSkecth extends Fragment {
             @Override
             public void onItemClick(String item, int position) {
                 Toast.makeText(getContext(), item + " posicao: " + position, Toast.LENGTH_SHORT).show();
+                //componentes.get(position).setTipoArduino();
             }
         });
 
@@ -69,14 +76,33 @@ public class FragmentPanelSkecth extends Fragment {
             @Override
             public void onItemClick(String pino, int position) {
                 Toast.makeText(getContext(), pino + "posicao: " + position, Toast.LENGTH_SHORT).show();
-
+                componentes.get(position).setPin(pino);
             }
+        });
+
+
+        //fragmentGerarSkecth.recebeConfiguracoes("teste");
+
+        gerar_skecth = view.findViewById(R.id.gerar_skecth);
+        gerar_skecth.setOnClickListener(v->
+        {
+            configurarCodigo = new ConfigurarCodigo(componentes);
+            fragmentGerarSkecth.recebeConfiguracoes("teste");
+            ((GerarScketch) getActivity()).trocarPagina(1);
         });
 
         return view;
 
 
 
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        model = ViewModelProviders.of(getActivity()).get(UserModel.class);
+        fragmentGerarSkecth = (FragmentGerarSkecth) model.getContextoGerarSkecth();
     }
 
 }
